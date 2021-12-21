@@ -1,0 +1,39 @@
+Microsoft Windows [Version 10.0.19043.1348]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\lara\laravelapi>php artisan make:model Product --migration
+Model created successfully.
+Created Migration: 2021_12_20_193641_create_products_table
+
+C:\lara\laravelapi>php artisan migrate
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table (58.40ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (47.87ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated:  2019_08_19_000000_create_failed_jobs_table (54.93ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated:  2019_12_14_000001_create_personal_access_tokens_table (76.31ms)
+Migrating: 2021_12_20_193641_create_products_table
+Migrated:  2021_12_20_193641_create_products_table (32.77ms)
+
+C:\lara\laravelapi>php artisan make:controller ProductController --api
+Controller created successfully.
+
+C:\lara\laravelapi>php artisan route:list
++--------+-----------+-----------------------------+------------------+------------------------------------------------------------+------------------------------------------+
+| Domain | Method    | URI                         | Name             | Action                                                     | Middleware                               |
++--------+-----------+-----------------------------+------------------+------------------------------------------------------------+------------------------------------------+
+|        | GET|HEAD  | /                           |                  | Closure                                                    | web                                      |
+|        | GET|HEAD  | api/products                | products.index   | App\Http\Controllers\ProductController@index               | api                                      |
+|        | POST      | api/products                | products.store   | App\Http\Controllers\ProductController@store               | api                                      |
+|        | GET|HEAD  | api/products/create         | products.create  | App\Http\Controllers\ProductController@create              | api                                      |
+|        | GET|HEAD  | api/products/{product}      | products.show    | App\Http\Controllers\ProductController@show                | api                                      |
+|        | PUT|PATCH | api/products/{product}      | products.update  | App\Http\Controllers\ProductController@update              | api                                      |
+|        | DELETE    | api/products/{product}      | products.destroy | App\Http\Controllers\ProductController@destroy             | api                                      |
+|        | GET|HEAD  | api/products/{product}/edit | products.edit    | App\Http\Controllers\ProductController@edit                | api                                      |
+|        | GET|HEAD  | api/user                    |                  | Closure                                                    | api                                      |
+|        |           |                             |                  |                                                            | App\Http\Middleware\Authenticate:sanctum |
+|        | GET|HEAD  | sanctum/csrf-cookie         |                  | Laravel\Sanctum\Http\Controllers\CsrfCookieController@show | web                                      |
++--------+-----------+-----------------------------+------------------+------------------------------------------------------------+------------------------------------------+
